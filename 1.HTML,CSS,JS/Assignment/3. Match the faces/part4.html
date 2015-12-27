@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Matching Game</title>
+        <style >
+                
+            img{
+                position:absolute; 
+                
+            }
+            
+            div{
+                position:absolute;
+                width:500px; 
+                height:500px;
+            }
+            #rightSide{
+                
+                 left: 500px; 
+            border-left: 1px solid black;
+            
+                
+            
+            }
+        </style>
+    
+
+        <script >
+            var numberOfFaces =5;
+            function  generateFaces(){
+                var theLeftSide =document.getElementById("leftSide");
+                var theRightSide =document.getElementById("rightSide");
+                var theBody=document.getElementsByTagName("body")[0];
+                    for (var i=0;i<numberOfFaces;i++){
+                        var img_1=document.createElement("img");
+                        img_1.src="http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+                        img_1.style.top=Math.random()*400+"px";
+                        img_1.style.left=Math.random()*400+"px";
+                        document.getElementById("leftSide").appendChild(img_1);
+                        }
+                leftSideImages =theLeftSide.cloneNode(true);
+                leftSideImages.removeChild(leftSideImages.lastChild)
+                theRightSide.appendChild(leftSideImages);
+                theLeftSide.lastChild.onclick=function nextLevel(event)
+                    {
+                    event.stopPropagation();
+                    numberOfFaces += 5;
+                    delete_all_children("rightSide")//deleting all the children of right div (i.e the faces)
+                    delete_all_children("leftSide")//deleting all the children of left div(i.e the faces)
+
+                    generateFaces();
+                    };
+                theBody.onclick = function gameOver() 
+                    {
+                    alert("Game Over!");
+                    theBody.onclick = null;
+                    theLeftSide.lastChild.onclick = null;}; 
+                    }
+                   
+            /**
+            This function deletes  the children based on id
+            */
+
+             function delete_all_children(id){
+                var theNode=document.getElementById(id)
+                while(theNode.firstChild){
+                    theNode.removeChild(theNode.firstChild)
+                    }
+                }
+            
+
+         </script>
+
+    </head>
+
+    <body onload="generateFaces() ">
+        <h1>Matching Game</h1>
+        <p>Click on extra smiling face on the left </p>
+        <div id="leftSide"></div>
+        <div id="rightSide"></div>
+
+
+    </body>
+
+</html>

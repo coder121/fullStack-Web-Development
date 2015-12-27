@@ -1,0 +1,53 @@
+<html>
+	<script>
+	function do_game(){
+		var colors=['red','blue','green','yellow'];
+		var index=Math.floor(Math.random()*(colors.length-1));
+		var target=colors[index];
+		var guess=1;
+		var flag=false;
+		alert("The target is "+target);<!--for debugging purpose-->
+		while(!flag){
+			var userInput=prompt("I am thinking of one of these colors\nred, blue, green, yellow\nWhat color am I thinking of?");
+			  flag=check_guess();
+			 guess+=1;
+
+		}
+		function  check_guess(){
+			<!--The first check is to find if the user input is part of an array-->
+			if(colors.indexOf(userInput)==-1){
+				alert("Sorry, I don't recognize that color!\nPlease try again!");
+					return false;
+
+			}
+			else{
+
+				if(target==userInput){
+						alert("Congratualation! you have guessed the color!\n It took you "+guess+" guesses to finish the game!\n");
+						var	myBody=document.getElementsByTagName("body")[0]; <!--it matches then changes the background color -->
+						myBody.style.background=target;
+						return true;
+					}
+					else if(userInput>target){
+						alert("Sorry, your guess is not correct!\nHint:Your input is alphabetically higher than mine!");
+						return false;
+
+					}
+					else if(userInput<target){
+						alert("Sorry, your guess is not correct!\nHint:Your input is alphabetically lower than mine!");
+						return false;
+
+					}
+			
+				}
+			
+
+		}
+
+	}
+
+	</script>
+	<body onload="do_game()">
+
+	</body>
+</html>

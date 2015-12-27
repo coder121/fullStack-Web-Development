@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<style>
+		.fieldSet {border:10px solid yellow;background:lightyellow;margin-bottom:10px;width:720px}
+		.labels {width:180px;display:inline-block;text-align: right;vertical-align: top;}
+		.options {width:auto;}
+		.rangeSelector{text-align: center;}
+		#address {width:360px;height: 50px;}
+
+		
+		</style>
+	</head>	
+		<body>
+			<h1>Please Enter your Details For Our Dating Website!</h1>
+			<form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php"  enctype="multipart/form-data">
+				<fieldset class="fieldSet">
+					<legend>Your Face</legend>
+					<label for="imageFile" class="labels">Your image:</label>
+						<input type="file" name="imageFile" id="imageFile"><br>
+					<label for="preview" class="labels">Image preview:</label>
+						<img id="preview" name="preview" id="preview">
+				</fieldset>
+				<fieldset class="fieldSet">
+					<legend>Your General Details</legend>
+					<label for="name"  class="labels">Name</label>
+						<input type="text" required name="name" id="name"><br>
+					<label for="gender" class="labels" class="options">Gender:</label>
+						<input type="radio" value="Male" name="gender" id="gender" required>Male
+						<input type="radio" value="Female" name="gender" id="gender" required>Female<br>
+					<label for="age" class="labels">Age:</label>
+						<input type="number" name="age" id="age" required><br>
+					<label for="dob" class="labels">Date of Birth:</label>
+						<input type="date" name="dob" id="dob"><br>
+					<label for="favColor" class="labels">Favourite color:</label>	
+						<input type="color" name="color" id="favColor"><br>
+					<label for="country" class="labels">Which country:</label>
+						<select name="Country" id="country">
+							<option name="noselect" ></option>
+							<option name="usa" >USA</option>
+							<option name="japan" >Japan</option>
+							<option name="china">China</option>
+							<option value="australia">Australia</option>
+							<option value="pakistan">India</option>
+						</select>
+				
+				</fieldset>
+				<fieldset class="fieldSet">
+					<legend>Your indicators</legend>
+					<label for="height" class="labels">Height:</label>
+		    			Short<input type="range" min="0" max="100" step="5" value="50" name="height" class="rangeSelector">Tall<br>
+		    		<label for="salary" class="labels">Salary:</label>
+		    			Poor<input type="range" min="0" max="100" step="5" value="50" name="salary" class="rangeSelector">Rich<br>
+				</fieldset>
+
+				<fieldset class="fieldSet">
+					<legend>Your Contact Information</legend>
+					<label for="email" class="labels">Email:</label>
+						<input type="email" name="email" required><br>
+					<label for="mobile" class="labels">Mobile:</label>
+						<input type="tele" name="mobile"> <br>
+					<label for="address" class="labels">Address:</label>
+						<textarea name="address" id="address"></textarea><br>
+					<label for="contactPreference" class="option">Method to contact you:</label>
+						<input type="checkbox" name="email" id="contactPreference">Email</input>
+						<input type="checkbox" name="whatsapp" id="contactPreference">Whatspp</input>
+						<input type="checkbox" name="in-app chat" id="contactPreference">In-app chat</input>
+				</fieldset>
+				<input type="submit" value="Submit">
+				
+			</form>
+			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+
+		</body>		
+</html>

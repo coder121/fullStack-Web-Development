@@ -1,0 +1,22 @@
++<html>
+	<script>
+	function do_game(){
+		var colors=['red','blue','green','yellow'];
+		var index=Math.floor(Math.random()*(colors.length-1));
+		var target=colors[index];<!--for debugging purpose-->
+		var flag=false;
+		alert("The target is "+target)
+		while(!flag){
+			var userSelection=prompt("I am thinking of one of these colors\nred, blue, green, yellow\nWhat color am I thinking of?");
+			 if(userSelection==target){
+			 flag=true;
+			}
+		}
+
+			}
+
+	</script>
+	<body onload="do_game()">
+
+	</body>
+</html>
